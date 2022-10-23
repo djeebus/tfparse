@@ -161,7 +161,7 @@ func (t *terraformConverter) getAttributeValue(
 ) interface{} {
 	rb, _ := t.modules.GetReferencedBlock(a, b)
 	if rb != nil {
-		return rb.ID()
+		return map[string]interface{}{"__ref__": rb.ID()}
 	}
 
 	val := a.Value()
