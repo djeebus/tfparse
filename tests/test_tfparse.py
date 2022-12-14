@@ -375,3 +375,9 @@ def test_references(tmp_path):
         "__ref__": kms_bucket["id"],
         "__type__": "aws_s3_bucket",
     }
+
+
+def test_some_bug_report(tmp_path):
+    mod_path = init_module("new_test", tmp_path)
+    parsed = load_from_path(mod_path)
+    assert parsed == {}
